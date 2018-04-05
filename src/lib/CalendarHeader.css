@@ -1,0 +1,53 @@
+.CalendarHeader {
+	user-select: none;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 300px;
+	color: black;
+	
+	display: grid;
+	grid-template-columns: 40px auto 40px;
+	align-items: center;
+}
+.CalendarHeader h1,
+.CalendarHeader button {
+	display: inline-block;
+	text-align: center;
+}
+.CalendarHeader h1 {
+	font-size: 2em;
+	margin: .67em 0;
+}
+.CalendarHeader input {
+	display: block;
+	font-size: small;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.15;
+	height: 18px;
+	width: 50px;
+	margin: -2px auto;
+	transform: translateX(10px);
+	border: none;
+	background: transparent;
+	font-family: inherit;
+}
+.CalendarHeader button {
+	box-shadow: none;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 100%;
+	line-height: 1.15;
+	user-select: none;
+	background: white;
+	border: 1px solid var(--light-gray);
+	height: 40px;
+	align-self: center;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.CalendarHeader button:disabled {
+	opacity: 0.5;
+}

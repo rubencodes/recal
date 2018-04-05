@@ -1,0 +1,70 @@
+#App {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 150px auto;
+	align-items: center;
+	justify-content: center;
+	background: #eee;
+	
+	width: 100%;
+	height: 100%;
+}
+#AppHeader {
+	grid-column-start: 1;
+	grid-column-end:   3;
+
+	align-self: stretch;
+	justify-self: stretch;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	box-shadow: inset 0 -5px 10px 0 rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+#AppHeader>h1 {
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 50px;
+	margin: 0;
+}
+#AppHeader>p {
+	margin: 0;
+}
+
+#DatePickerExample,
+#DateRangePickerExample {
+	width: 100%;
+	height: 100%;
+	min-height: 370px;
+	background: white;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#DatePickerExample > b,
+#DateRangePickerExample > b {
+	display: block;
+	background: #69F;
+	color: white;
+	border-radius: 10px;
+	padding: 5px 10px;
+	margin: 10px;
+	user-select: none;
+}
+
+@media(max-width: 768px) {
+	#App {
+		grid-template-columns: 1fr;
+		grid-template-rows: 150px 1fr 1fr;
+	}
+	#AppHeader {
+		grid-column-start: 1;
+		grid-column-end:   2;
+	}
+}

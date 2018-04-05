@@ -1,0 +1,45 @@
+{
+  "name": "recal",
+  "version": "0.1.0",
+  "description": "A minimal, accessible React calendar component using modern CSS.",
+  "main": "lib/index.js",
+  "scripts": {
+    "lib": "babel src/lib -d lib",
+    "lib:watch": "babel src/lib -w -d lib",
+    "docs": "webpack-dev-server",
+    "docs:prod": "webpack -p"
+  },
+  "keywords": [
+    "react",
+    "calendar",
+    "datepicker"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "date-fns": "^1.29.0"
+  },
+  "peerDependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.37",
+    "@babel/core": "^7.0.0-beta.37",
+    "@babel/preset-env": "^7.0.0-beta.37",
+    "@babel/preset-react": "^7.0.0-beta.37",
+    "babel-loader": "^8.0.0-beta.0",
+    "css-loader": "^0.28.8",
+    "html-webpack-plugin": "^2.30.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0"
+  },
+  "author": "Ruben Martinez Jr. <ruben.martinez93@gmail.com>",
+  "homepage": "https://github.com/rubencodes/recal",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rubencodes/recal.git"
+  }
+}

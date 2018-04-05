@@ -1,0 +1,61 @@
+.CalendarDay {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+	
+	border: none;
+	user-select: none;
+	position: relative;
+	padding: 4px 4px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+	transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+
+	background: white;
+	color: #666;
+}
+.CalendarDay.isDisabled {
+	cursor: default;
+	opacity: 0.5;
+}
+.CalendarDay:not(.isDisabled) {
+	cursor: pointer;
+}
+.CalendarDay:not(.isDisabled):hover {
+	transform: scale(1.2);
+	box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+	z-index: 100;
+
+	background: var(--lighter-blue);
+}
+.CalendarDay:not(.isDisabled):focus {
+	z-index: 101;
+
+	background: var(--lighter-blue);
+}
+.CalendarDay.isToday:not(.isDisabled) {
+	border: 1px dotted var(--gray);
+}
+.CalendarDay.isHighlighted:not(.isDisabled) {
+	background: var(--highlight);
+	color: var(--dark-gray);
+}
+.CalendarDay.isInRange:not(.isDisabled) {
+	background: var(--light-blue);
+	color: white;
+}
+.CalendarDay.isSelected:not(.isDisabled) {
+	font-weight: bold;
+
+	background: var(--blue);
+	color: white;
+	z-index: 100;
+}
+@media(max-width: 768px) {
+	.CalendarDay {
+		height: 30px;
+	}
+}

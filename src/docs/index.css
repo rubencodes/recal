@@ -1,0 +1,13 @@
+html, body, #root {
+	width: 100vw;
+	height: 100vh;
+  font-family: Helvetica, sans-serif;
+  line-height: 1.15;
+  margin: 0;
+  -webkit-text-size-adjust:100%;
+	background: #eee;
+}
+
+#root {
+  display: contents;
+}
