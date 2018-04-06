@@ -8,21 +8,22 @@ import {
   daysOfWeek,
   getMonthTemplate
 } from './Utils';
-
-import './Calendar.css';
+import CalendarStyles from './Calendar.style.js';
 
 const Calendar = (props) => {
 	const {
 		month,
 		year,
 
+		isDateHovered,
+		isDateFocused,
 		isDateSelected,
 		isDateInRange,
 		isDateHighlighted,
 		isDateEnabled,
 
-		onDateSelected,
 		onDateHovered,
+		onDateSelected,
 		onChangeMonth,
 		onChangeYear,
 
@@ -39,7 +40,7 @@ const Calendar = (props) => {
 	} = getMonthTemplate(month, year);
 
 	return (
-		<div className="CalendarContainer">
+		<div className="CalendarContainer" style={ CalendarStyles.root }>
 			<CalendarHeader
 				month={ month }
 				year={ year }
@@ -48,36 +49,32 @@ const Calendar = (props) => {
 				onChangeYear={ onChangeYear }
 				locale={ locale }
 				disabled={ disabled } />
-			<div className="Calendar" ref={ calendarRef }>
-				<div className="head">
+			<div className="Calendar" ref={ calendarRef } style={ CalendarStyles.Calendar }>
+				<div className="head" style={ CalendarStyles.CalendarHead }>
 					{ dayNames.map((dayName) => (
-						<div key={ dayName } className="day-heading" role="columnheader" aria-label={ dayName }>
+						<div key={ dayName } style={ CalendarStyles.CalendarHeadDayHeading } className="day-heading" role="columnheader" aria-label={ dayName }>
 							<abbr>{ dayName.slice(0, 3) }</abbr>
 						</div>
 					)) }
 				</div>
-				<div className="body" role="grid">
-					{ monthTemplate.map((day, i) => {
-						const date = day ? new Date(year, month - 1, day) : null;
-						const label = day ? format(date, 'dddd, MMMM D, YYYY') : null;
-						const isDayToday = day ? isToday(date) : null;
-						
-						return (
-							<CalendarDay
-								key={ date }
-								date={ date }
-								dateButtonRef={ createDateButtonRef(date) }
-								dateLabel={ label }
-								style={ i === 0 ? { gridColumnStart } : {} }
-								isToday={ isDayToday }
-								isSelected={ isDateSelected(date) }
-								isInRange={ isDateInRange(date) }
-								isHighlighted={ isDateHighlighted(date) }
-								isDisabled={ disabled || !isDateEnabled(date) }
-								onSelect={ onDateSelected }
-								onHover={ onDateHovered } />
-						);
-					}) }
+				<div className="body" style={ CalendarStyles.CalendarBody } role="grid">
+					{ monthTemplate.map((date, i) => (
+						<CalendarDay
+							key={ date }
+							date={ date }
+							dateButtonRef={ createDateButtonRef(date) }
+							dateLabel={ format(date, 'dddd, MMMM D, YYYY') }
+							style={ i === 0 ? { gridColumnStart } : {} }
+							isToday={ isToday(date) }
+							isHovered={ isDateHovered(date) }
+							isFocused={ isDateFocused(date) }
+							isSelected={ isDateSelected(date) }
+							isInRange={ isDateInRange(date) }
+							isHighlighted={ isDateHighlighted(date) }
+							isDisabled={ disabled || !isDateEnabled(date) }
+							onSelect={ onDateSelected }
+							onHover={ onDateHovered } />
+					)) }
 				</div>
 			</div>
 		</div>

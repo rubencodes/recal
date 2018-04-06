@@ -17,7 +17,6 @@ class DateRangePicker extends React.PureComponent {
 		this.isDateEnabled = this.isDateEnabled.bind(this);
 		this.onStartDateSelected = this.onStartDateSelected.bind(this);
 		this.onEndDateSelected = this.onEndDateSelected.bind(this);
-		this.onDateHovered = this.onDateHovered.bind(this);
 	}
 	
 	isDateHighlighted(date) {
@@ -49,11 +48,6 @@ class DateRangePicker extends React.PureComponent {
 			endDate: date
 		});
 	}
-	onDateHovered(date) {
-		this.setState({
-			hoveredDate: date
-		});
-	}
 	
 	render() {
 		const { startDate, endDate, hoveredDate } = this.state;
@@ -66,12 +60,10 @@ class DateRangePicker extends React.PureComponent {
 					type={ CalendarType.DateRangePicker }
 					startDate={ startDate }
 					endDate={ endDate }
-					hoveredDate={ hoveredDate }
 					isDateHighlighted={ this.isDateHighlighted }
 					isDateEnabled={ this.isDateEnabled }
 					onStartDateSelected={ this.onStartDateSelected }
 					onEndDateSelected={ this.onEndDateSelected }
-					onDateHovered={ this.onDateHovered }
 					locale={ locale } />
 			</div>
 		);

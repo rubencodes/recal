@@ -5,6 +5,7 @@ import addWeeks from 'date-fns/add_weeks';
 import addDays from 'date-fns/add_days';
 import format from 'date-fns/format';
 import isSameDay from 'date-fns/is_same_day';
+import isBefore from 'date-fns/is_before';
 import isWithinRange from 'date-fns/is_within_range';
 
 import Calendar from './Calendar';
@@ -26,6 +27,9 @@ class CalendarController extends React.PureComponent {
 		this.handleKeyPress = this.handleKeyPress.bind(this);
 		this.onDateHovered = this.onDateHovered.bind(this);
 		this.onDateSelected = this.onDateSelected.bind(this);
+		this.onDateFocused = this.onDateFocused.bind(this);
+		this.isDateHovered = this.isDateHovered.bind(this);
+		this.isDateFocused = this.isDateFocused.bind(this);
 		this.isDateSelected = this.isDateSelected.bind(this);
 		this.isDateInRange = this.isDateInRange.bind(this);
 		this.isDateEnabled = this.isDateEnabled.bind(this);
@@ -166,7 +170,7 @@ class CalendarController extends React.PureComponent {
 		
 		this.onDateFocused(date);
 		if(type === CalendarType.DatePicker) {
-			onDateSelected(date);
+			if(onDateSelected) onDateSelected(date);
 		}
 		else if(type === CalendarType.DateRangePicker) {
 			const noStartDate = !this.props.startDate;
@@ -174,26 +178,30 @@ class CalendarController extends React.PureComponent {
 			const dateIsPriorToStart = this.props.startDate && this.props.startDate > date;
 			const needStartDate = noStartDate || allSelected || dateIsPriorToStart;
 			if(needStartDate) {
-				onStartDateSelected(date);
-				onEndDateSelected(null);
+				if(onStartDateSelected) onStartDateSelected(date);
+				if(onEndDateSelected) onEndDateSelected(null);
 			}
 			else {
-				onEndDateSelected(date);
+				if(onEndDateSelected) onEndDateSelected(date);
 			}
 		}
 	}
 	onDateHovered(date) {
 		const { onDateHovered } = this.props;
 		
-		onDateHovered(date);
+		this.setState({ hovered: date }, () => {
+			if(onDateHovered) onDateHovered(date);
+		});
 	}
 	onDateFocused(date) {
+		const { onDateFocused } = this.props;
 		let { month, year } = this.state;
 		month = date.getMonth() + 1;
 		year = date.getFullYear();
 		
 		this.setState({ focused: date, month, year }, () => {
 			this[format(date, 'YYYYMMDD')].focus();
+			if(onDateFocused) onDateFocused(date);
 		});
 	}
 	
@@ -207,6 +215,12 @@ class CalendarController extends React.PureComponent {
 		
 		return isDateHighlighted(date);
 	}
+	isDateFocused(date) {
+		return isSameDay(date, this.state.focused);
+	}
+	isDateHovered(date) {
+		return isSameDay(date, this.state.hovered);
+	}
 	isDateSelected(date) {
 		const selectedDays = this.props.type === CalendarType.DatePicker
 					? [ this.props.date ]
@@ -219,11 +233,12 @@ class CalendarController extends React.PureComponent {
 	isDateInRange(date) {
 		if(this.props.type === CalendarType.DatePicker) return false;
 		
-		const startDate = this.props.startDate;
-		const endDate = this.props.endDate || (this.props.startDate != this.state.focused ? this.state.focused : this.props.hoveredDate);
-		if(!startDate || !endDate || endDate < startDate) return false;
+		const { startDate: startRange, endDate } = this.props;
+		const { focused, hovered } = this.state;
+		const endRange = endDate || (startRange && focused && !isSameDay(startRange, focused) ? focused : hovered);
+		if(!startRange || !endRange || isBefore(endRange, startRange)) return false;
 
-		return isWithinRange(date, startDate, endDate);
+		return isWithinRange(date, startRange, endRange);
 	}
 
 	createDateButtonRef(date) {
@@ -239,14 +254,16 @@ class CalendarController extends React.PureComponent {
 				createDateButtonRef={ this.createDateButtonRef }
 				rerender={ {
 					focused: this.state.focused,
+					hovered: this.state.hovered,
 					date: this.props.date,
 					startDate: this.props.startDate,
-					endDate: this.props.endDate,
-					hoveredDate: this.props.hoveredDate
+					endDate: this.props.endDate
 				} }
 				month={ this.state.month }
 				year={ this.state.year }
 
+				isDateHovered={ this.isDateHovered }
+				isDateFocused={ this.isDateFocused }
 				isDateSelected={ this.isDateSelected }
 				isDateInRange={ this.isDateInRange }
 				isDateHighlighted={ this.isDateHighlighted }
@@ -267,8 +284,6 @@ CalendarController.defaultProps = {
 	locale: 'en-US',
 	isDateHighlighted: (date) => false,
 	isDateEnabled: (date) => true,
-	onDateSelected: (date) => console.log('Selected: ', date),
-	onDateHovered: (date) => console.log('Hovered: ', date),
 	disabled: false
 };
 
