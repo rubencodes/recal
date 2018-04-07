@@ -14,7 +14,7 @@ export const mapPropsToStyles = (props, styles) => {
   return mappedStyles;
 }
 export const daysOfWeek = (locale='en-US') => {
-  window.days = window.days || Array.from({ length: 7 }).map((_, i) => {
+  window.days = window.days || [...Array(7)].map((_, i) => {
     const baseDate = new Date(Date.UTC(2017, 0, i + 2)); // just a Sunday
 
     return baseDate.toLocaleDateString(locale, { weekday: 'long' });
@@ -23,7 +23,7 @@ export const daysOfWeek = (locale='en-US') => {
   return window.days;
 };
 export const monthsOfYear = (locale='en-US') => {
-  window.months = window.months || Array.from({ length: 12 }).map((_, i) => {
+  window.months = window.months || [...Array(12)].map((_, i) => {
     let baseDate = new Date(Date.UTC(2017, i + 1, 1));
 
     return baseDate.toLocaleDateString(locale, { month: 'long' });
@@ -41,7 +41,7 @@ export const getMonthTemplate = (month, year) => {
   const gridColumnStart = (new Date(year, month - 1, 1)).getDay() + 1;
   
   // Fill in array with days of month.
-  const monthTemplate = Array.from({ length: numDaysInMonth })
+  const monthTemplate = [...Array(numDaysInMonth10)]
     .map((_, i) => new Date(year, month - 1, i + 1));
   
   return {
