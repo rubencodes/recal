@@ -41,7 +41,7 @@ export const getMonthTemplate = (month, year) => {
   const gridColumnStart = (new Date(year, month - 1, 1)).getDay() + 1;
   
   // Fill in array with days of month.
-  const monthTemplate = [...Array(numDaysInMonth10)]
+  const monthTemplate = [...Array(numDaysInMonth)]
     .map((_, i) => new Date(year, month - 1, i + 1));
   
   return {
