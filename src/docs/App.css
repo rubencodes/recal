@@ -4,7 +4,7 @@
 	grid-template-rows: 150px auto;
 	align-items: center;
 	justify-content: center;
-	background: #eee;
+	background-color: #eee;
 	
 	width: 100%;
 	height: 100%;
@@ -39,7 +39,7 @@
 	width: 100%;
 	height: 100%;
 	min-height: 370px;
-	background: white;
+	background-color: white;
 	
 	display: flex;
 	flex-direction: column;
@@ -50,7 +50,7 @@
 #DatePickerExample > b,
 #DateRangePickerExample > b {
 	display: block;
-	background: #69F;
+	background-color: #69F;
 	color: white;
 	border-radius: 10px;
 	padding: 5px 10px;
