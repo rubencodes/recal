@@ -2,34 +2,47 @@ import {
   lightGray,
   lighterGray
 } from './variables.style.js';
+import {
+  prefixedUserSelect,
+  prefixedDisplay,
+  prefixedGridTemplate,
+  prefixedGridGap
+} from './helpers.style.js';
 
 export default {
   root: {
-    border: `1px solid ${lightGray}`,
-    width: "calc(100% - 20px)",
-    maxWidth: "320px",
-    margin: "0 auto",
-    padding: "10px"
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: lightGray,
+    width: 'calc(100% - 20px)',
+    maxWidth: 320,
+    margin: '0 auto',
+    padding: 10
   },
   Calendar: {
-    color: "black"
+    color: 'black'
   },
   CalendarHead: {
-    display: "grid",
-    gridTemplateColumns: "repeat(7, 1fr)"
+    ...prefixedDisplay('grid'),
+    ...prefixedGridTemplate('auto / repeat(7, 1fr)'),
+    
+    marginBottom: 5
   },
   CalendarHeadDayHeading: {
-    userSelect: "none",
-    fontWeight: "bold",
-    fontSize: "small",
-    textAlign: "center",
-    marginBottom: "5px"
+    ...prefixedUserSelect('none'),
+
+    fontWeight: 'bold',
+    fontSize: 'small',
+    textAlign: 'center'
   },
   CalendarBody: {
-    display: "grid",
-    gridTemplateColumns: "repeat(7, 1fr)",
-    gridGap: "1px",
-    background: `${lighterGray}`,
-    border: `1px solid ${lighterGray}`
+    ...prefixedDisplay('grid'),
+    ...prefixedGridTemplate('auto / repeat(7, 1fr)'),
+    ...prefixedGridGap(1),
+
+    backgroundColor: lighterGray,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: lighterGray
   }
 };

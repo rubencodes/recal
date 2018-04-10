@@ -1,56 +1,68 @@
 import {
 	lightGray
 } from './variables.style.js';
+import {
+	prefixedUserSelect,
+	prefixedDisplay,
+	prefixedTransform,
+	prefixedBoxShadow,
+	prefixedGridTemplate,
+	prefixedAlignItems,
+	prefixedAlignSelf,
+	prefixedJustifyContent
+} from './helpers.style.js';
 
 export default {
   root: {
-		userSelect: "none",
-		margin: "0 auto",
-		width: "100%",
-		maxWidth: "300px",
-		color: "black",
-		display: "grid",
-		gridTemplateColumns: "40px auto 40px",
-		alignItems: "center"
+		...prefixedUserSelect('none'),
+		...prefixedDisplay('grid'),
+		...prefixedGridTemplate('auto / 40px auto 40px'),
+		...prefixedAlignItems('center'),
+
+		margin: '0 auto',
+		width: '100%',
+		maxWidth: 300,
+		color: 'black'
   },
   h1: {
-		textAlign: "center",
-		fontSize: "2em",
-		margin: ".67em 0"
+		textAlign: 'center',
+		fontSize: '2em',
+		margin: '.67em 0'
   },
   input: {
-		display: "block",
-		fontSize: "small",
-		fontWeight: "bold",
-		textAlign: "center",
-		lineHeight: "1.15",
-		height: "18px",
-		width: "50px",
-		margin: "-2px auto",
-		transform: "translateX(10px)",
-		border: "none",
-		background: "transparent",
-		fontFamily: "inherit"
+		...prefixedTransform('translateX(10px)'),
+		...prefixedDisplay('block'),
+		
+		fontSize: 'small',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		lineHeight: '1.15',
+		height: 18,
+		width: 50,
+		margin: '-2px auto',
+		border: 'none',
+		backgroundColor: 'transparent',
+		fontFamily: 'inherit'
   },
   button: {
-		boxShadow: "none",
-		fontFamily: "monospace",
-		fontWeight: "bold",
-		fontSize: "100%",
-		lineHeight: "1.15",
-		userSelect: "none",
-		background: "white",
-		borderWidth: '1px',
+		...prefixedUserSelect('none'),
+		...prefixedDisplay('flex'),
+		...prefixedBoxShadow('none'),
+		...prefixedAlignSelf('center'),
+		...prefixedAlignItems('center'),
+		...prefixedJustifyContent('center'),
+
+		fontFamily: 'monospace',
+		fontWeight: 'bold',
+		fontSize: '100%',
+		lineHeight: '1.15',
+		backgroundColor: 'white',
+		borderWidth: 1,
 		borderStyle: 'solid',
 		borderColor: lightGray,
-		// border: `1px solid ${lightGray}`,
-		height: "40px",
-		alignSelf: "center",
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center"
+		height: 40
   },
   button_disabled: {
-		opacity: "0.5"
+		opacity: '0.5'
   }
 };
