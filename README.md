@@ -89,12 +89,12 @@ Both calendar types have some required and some optional props.
 
 ```
 // Used by Date Picker
-selectedDate: PropTypes.instanceOf(Date).optional,
+selectedDate: PropTypes.instanceOf(Date),
 onDateSelected: PropTypes.func,
 
 // Used by Date Range Picker
-startDate: PropTypes.instanceOf(Date).optional,
-endDate: PropTypes.instanceOf(Date).optional,
+startDate: PropTypes.instanceOf(Date),
+endDate: PropTypes.instanceOf(Date),
 onStartDateSelected: PropTypes.func,
 onEndDateSelected: PropTypes.func,
 
