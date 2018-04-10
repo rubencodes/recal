@@ -8,7 +8,6 @@ import {
   daysOfWeek,
   getMonthTemplate
 } from './Utils';
-import CalendarStyles from './Calendar.style.js';
 
 const Calendar = (props) => {
 	const {
@@ -40,7 +39,7 @@ const Calendar = (props) => {
 	} = getMonthTemplate(month, year);
 
 	return (
-		<div className="CalendarContainer" style={ CalendarStyles.root }>
+		<div className="CalendarContainer">
 			<CalendarHeader
 				month={ month }
 				year={ year }
@@ -49,15 +48,15 @@ const Calendar = (props) => {
 				onChangeYear={ onChangeYear }
 				locale={ locale }
 				disabled={ disabled } />
-			<div className="Calendar" ref={ calendarRef } style={ CalendarStyles.Calendar }>
-				<div className="head" style={ CalendarStyles.CalendarHead }>
+			<div className="Calendar" ref={ calendarRef }>
+				<div className="head">
 					{ dayNames.map((dayName) => (
-						<div key={ dayName } style={ CalendarStyles.CalendarHeadDayHeading } className="day-heading" role="columnheader" aria-label={ dayName }>
+						<div key={ dayName } className="dayHeading" role="columnheader" aria-label={ dayName }>
 							<abbr>{ dayName.slice(0, 3) }</abbr>
 						</div>
 					)) }
 				</div>
-				<div className="body" style={ CalendarStyles.CalendarBody } role="grid">
+				<div className="body" role="grid">
 					{ monthTemplate.map((date, i) => (
 						<CalendarDay
 							key={ date }
