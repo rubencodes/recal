@@ -1,6 +1,6 @@
 {
   "name": "recal",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A minimal, accessible React calendar component using modern CSS.",
   "main": "lib/index.js",
   "scripts": {
