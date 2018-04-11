@@ -7,8 +7,9 @@
 /coverage
 
 # production
-unpkg
-lib
+cjs
+esm
+umd
 
 # misc
 .DS_Store
