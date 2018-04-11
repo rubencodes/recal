@@ -288,16 +288,5 @@ CalendarController.defaultProps = {
 	disabled: false
 };
 
-function createCalendarType(calendarType) {
-  class CalendarType extends React.PureComponent {
-    render() {
-      return <CalendarController type={ calendarType } { ...this.props } />;
-    }
-  }
-  CalendarType.displayName = `${calendarType}(CalendarController)`;
-
-  return CalendarType;
-}
-
-export const DatePicker = createCalendarType(CalendarType.DatePicker);
-export const DateRangePicker = createCalendarType(CalendarType.DateRangePicker);
+export const DatePicker = (props) => <CalendarController type={ CalendarType.DatePicker } { ...props } />;
+export const DateRangePicker = (props) => <CalendarController type={ CalendarType.DateRangePicker } { ...props } />;
