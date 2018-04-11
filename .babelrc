@@ -1,12 +1,9 @@
 {
-  "env": {
-    "cjs": {
-      "plugins": ["transform-es2015-modules-commonjs"]
-    },
-    "umd": {
-      "plugins": ["transform-es2015-modules-umd"]
-    }
-  },
   "plugins": ["@babel/plugin-proposal-object-rest-spread"],
-  "presets": ["@babel/env", "@babel/react"]
+  "presets": [["@babel/env", {
+    "modules": false,
+    "targets": {
+      "browsers": ["last 2 versions", "IE >= 9"]
+    }
+  }], "@babel/react"]
 }

@@ -1,15 +1,12 @@
 {
   "name": "recal",
-  "version": "1.0.0b-7",
+  "version": "1.0.0b-8",
   "description": "A minimal, accessible React calendar component using modern CSS.",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
-  "browser": "umd/index.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "browser": "lib/index.umd.js",
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
-    "build:cjs": "BABEL_ENV=cjs babel src/lib -d cjs --copy-files",
-    "build:umd": "BABEL_ENV=umd babel src/lib -d umd --copy-files",
-    "build:esm": "BABEL_ENV=esm babel src/lib -d esm --copy-files",
+    "build": "rollup -c",
     "lib:watch": "babel src/lib -w -d esm --copy-files",
     "docs": "webpack-dev-server",
     "docs:prod": "webpack -p"
@@ -41,6 +38,10 @@
     "postcss-loader": "^2.1.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-uglify": "^3.0.0",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
