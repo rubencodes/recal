@@ -2,8 +2,9 @@
   "name": "recal",
   "version": "1.0.0b-7",
   "description": "A minimal, accessible React calendar component using modern CSS.",
-  "main": "esm/index.js",
-  "browser": "cjs/index.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "browser": "umd/index.js",
   "scripts": {
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
     "build:cjs": "BABEL_ENV=cjs babel src/lib -d cjs --copy-files",
