@@ -30,8 +30,8 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
-  -ms-grid-columns: 40px auto 40px;
-      grid-template: auto / 40px auto 40px;
+  -ms-grid-columns: 40px 1fr 40px;
+      grid-template: auto / 40px 1fr 40px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -74,7 +74,6 @@
   display: flex;
   -webkit-box-shadow: none;
           box-shadow: none;
-  -ms-flex-item-align: center;
   -ms-grid-column-align: center;
       align-self: center;
   -webkit-box-align: center;
@@ -82,6 +81,7 @@
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
+      -ms-grid-row-align: center;
           justify-content: center;
 
   font-family: monospace;
