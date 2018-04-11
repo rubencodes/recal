@@ -1,10 +1,16 @@
 /* CalendarContainer */
+.CalendarContainer,
+.CalendarContainer *,
+.CalendarContainer *:after,
+.CalendarContainer *:before {
+  box-sizing: border-box;
+}
 .CalendarContainer {
   border-width: 1px;
   border-style: solid;
   border-color: lightgray;
   background-color: white;
-  width: 302px;
+  width: 324px;
   margin: 0;
   padding: 10px;
 }
@@ -30,7 +36,10 @@
 }
 .CalendarContainer>.CalendarHeader h1 {
   text-align: center;
-  font-size: 1.5em;
+  text-transform: none;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
   margin: 0 0 10px;
   -ms-grid-column: 2;
   grid-column: 2;
@@ -40,9 +49,9 @@
   font-size: small;
   font-weight: bold;
   text-align: center;
-  line-height: 1.15;
+  line-height: 15px;
   height: 18px;
-  width: 50px;
+  width: 60px;
   margin: 0 auto;
   border: none;
   background-color: transparent;
@@ -74,7 +83,7 @@
   font-family: monospace;
   font-weight: bold;
   font-size: 100%;
-  line-height: 1.15;
+  line-height: 15px;
   background-color: white;
   border-width: 1px;
   border-style: solid;
@@ -102,27 +111,27 @@
   
 	display: inline-block;
 	border-style: solid;
-	border-width: 0.25em 0.25em 0 0;
-	height: 0.45em;
-	width: 0.45em;
+	border-width: 3px 3px 0 0;
+  height: 10px;
+  width: 10px;
 	position: relative;
-	top: 0.25em;
+	top: 3px;
 	vertical-align: top;
 }
 .CalendarContainer>.CalendarHeader .Chevron.right:before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  left: -0.15em;
+  left: -2px;
 }
 .CalendarContainer>.CalendarHeader .Chevron.left:before {
   -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
-  left: 0.1em;
+  left: 2px;
 }
 
 /* Calendar */
 .CalendarContainer>.Calendar {
-  color: 'black';
+  color: black;
 }
 .CalendarContainer>.Calendar>.head {
   display: -ms-grid;
@@ -142,6 +151,7 @@
   font-weight: bold;
   font-size: small;
   text-align: center;
+  text-transform: none;
 }
 .CalendarContainer>.Calendar>.body {
   display: -ms-grid;
@@ -182,7 +192,7 @@
   font-family: inherit;
   font-size: small;
   font-weight: lighter;
-  line-height: 1.15;
+  line-height: 15px;
   margin: 0px;
   border: none;
   position: relative;
