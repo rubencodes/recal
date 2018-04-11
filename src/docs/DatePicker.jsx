@@ -2,9 +2,9 @@ import React from 'react';
 import isSameDay from 'date-fns/is_same_day';
 import isBefore from 'date-fns/is_before';
 
-import Calendar, { CalendarType } from '../lib/index.jsx';
+import { DatePicker } from '../lib/index.jsx';
 
-class DatePicker extends React.PureComponent {
+class MyDatePicker extends React.PureComponent {
 	constructor() {
 		super();
 		
@@ -48,8 +48,7 @@ class DatePicker extends React.PureComponent {
 		return (
 			<div id="DatePickerExample">
 				<b>Date Picker Example</b>
-				<Calendar
-					type={ CalendarType.DatePicker }
+				<DatePicker
 					date={ selectedDate }
 					isDateHighlighted={ this.isDateHighlighted }
 					isDateEnabled={ this.isDateEnabled }
@@ -61,4 +60,4 @@ class DatePicker extends React.PureComponent {
 	}
 }
 
-export default DatePicker;
+export default MyDatePicker;

@@ -9,8 +9,9 @@ import isBefore from 'date-fns/is_before';
 import isWithinRange from 'date-fns/is_within_range';
 
 import Calendar from './Calendar';
+import './index.css';
 
-export const CalendarType = {
+const CalendarType = {
 	DatePicker: 'DatePicker',
 	DateRangePicker: 'DateRangePicker'
 };
@@ -287,4 +288,16 @@ CalendarController.defaultProps = {
 	disabled: false
 };
 
-export default CalendarController;
+function createCalendarType(calendarType) {
+  class CalendarType extends React.PureComponent {
+    render() {
+      return <CalendarController type={ calendarType } { ...this.props } />;
+    }
+  }
+  CalendarType.displayName = `${calendarType}(CalendarController)`;
+
+  return CalendarType;
+}
+
+export const DatePicker = createCalendarType(CalendarType.DatePicker);
+export const DateRangePicker = createCalendarType(CalendarType.DateRangePicker);

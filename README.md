@@ -20,7 +20,7 @@ Once you've installed the package, import the necessary files into project you w
 import React from 'react';
 
 // Calendar component and enum of valid types.
-import Calendar, { CalendarType } from 'recal';
+import { DatePicker, DateRangePicker } from 'recal';
 
 // Stylesheet for recal Calendar.
 import 'recal/lib/index.css';
@@ -31,7 +31,7 @@ import 'recal/lib/index.css';
 To create a single date picker, use the `Calendar` component as follows:
 
 ```
-class DatePicker extends React.Component {
+class MyDatePicker extends React.Component {
   state = {};
 
   onDateSelected = (selectedDate) => {
@@ -42,8 +42,7 @@ class DatePicker extends React.Component {
 
   render() {
     return (
-      <Calendar
-        type={ CalendarType.DatePicker }
+      <DatePicker
         date={ this.state.selectedDate }
         onDateSelected={ this.onDateSelected } />
     );
@@ -56,7 +55,7 @@ class DatePicker extends React.Component {
 To create a date range picker, use the `Calendar` component as follows:
 
 ```
-class DateRangePicker extends React.Component {
+class MyDateRangePicker extends React.Component {
   state = {};
 
   onStartDateSelected = (startDate) => {
@@ -72,8 +71,7 @@ class DateRangePicker extends React.Component {
 
   render() {
     return (
-      <Calendar
-        type={ CalendarType.DateRangePicker }
+      <DateRangePicker
         startDate={ this.state.startDate }
         endDate={ this.state.endDate }
         onStartDateSelected={ this.onStartDateSelected } />
@@ -85,14 +83,14 @@ class DateRangePicker extends React.Component {
 
 ### Options
 
-Both calendar types have some required and some optional props.
+Both calendars have some required and some optional props.
 
 ```
-// Used by Date Picker
+// Used by DatePicker
 selectedDate: PropTypes.instanceOf(Date),
 onDateSelected: PropTypes.func,
 
-// Used by Date Range Picker
+// Used by DateRangePicker
 startDate: PropTypes.instanceOf(Date),
 endDate: PropTypes.instanceOf(Date),
 onStartDateSelected: PropTypes.func,
@@ -108,11 +106,11 @@ locale: PropTypes.string
 
 ## Localization
 
-Use the `locale` string prop on the `Calendar` component to localize it into other languages *(e.g. "en-US", "es-MX", etc.)*.
+Use the `locale` string prop on the calendar components to localize them into other languages *(e.g. "en-US", "es-MX", etc.)*.
 
 ## Accessibility
 
-This `Calendar` component is optimized for screen readers as well as for keyboard-based navigation. The following shortcuts are available with the calendar focused:
+This set of calendars are optimized for screen readers as well as for keyboard-based navigation. The following shortcuts are available when the calendar is focused:
 
 - Left Arrow key to navigate back 1 day,
 - Right Arrow key to navigate forward 1 day,

@@ -2,9 +2,9 @@ import React from 'react';
 import isSameDay from 'date-fns/is_same_day';
 import isBefore from 'date-fns/is_before';
 
-import Calendar, { CalendarType } from '../lib/index.jsx';
+import { DateRangePicker } from '../lib/index.jsx';
 
-class DateRangePicker extends React.PureComponent {
+class MyDateRangePicker extends React.PureComponent {
 	constructor() {
 		super();
 		
@@ -56,8 +56,7 @@ class DateRangePicker extends React.PureComponent {
 		return (
 			<div id="DateRangePickerExample">
 				<b>Date Range Picker Example</b>
-				<Calendar
-					type={ CalendarType.DateRangePicker }
+				<DateRangePicker
 					startDate={ startDate }
 					endDate={ endDate }
 					isDateHighlighted={ this.isDateHighlighted }
@@ -70,4 +69,4 @@ class DateRangePicker extends React.PureComponent {
 	}
 }
 
-export default DateRangePicker;
+export default MyDateRangePicker;
