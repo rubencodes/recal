@@ -1,21 +1,7 @@
 .CalendarContainer {
-  --highlight: gold;
-
-  --darkBlue: #527ACC;
-  --blue: #69F;
-  --lightBlue: #9BF;
-  --lighterBlue: #CDF;
-
-  --darkGray: #444;
-  --gray: gray;
-  --lightGray: lightgray;
-  --lighterGray: #EEE;
-}
-
-.CalendarContainer {
   border-width: 1px;
   border-style: solid;
-  border-color: var(--lightGray);
+  border-color: lightgray;
   width: calc(100% - 20px);
   max-width: 320px;
   margin: 0 auto;
@@ -91,7 +77,7 @@
   background-color: white;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--lightGray);
+  border-color: lightgray;
   height: 40px;
 }
 .CalendarContainer>.CalendarHeader button:first-of-type {
@@ -174,10 +160,10 @@
       grid-template: auto / repeat(7, 1fr);
   grid-gap: 1px;
 
-  background-color: var(--lighterGray);
+  background-color: #EEE;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--lighterGray);
+  border-color: #EEE;
 }
 
 .CalendarContainer>.Calendar .CalendarDay {
@@ -209,7 +195,7 @@
   position: relative;
   padding: 4px 4px;
   background-color: white;
-  color: var(--darkGray);
+  color: #444;
   cursor: pointer;
 }
 .CalendarContainer>.Calendar .CalendarDay.isDisabled {
@@ -223,27 +209,27 @@
           box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
 
   z-index: 100;
-  background-color: var(--lighterBlue);
+  background-color: #CDF;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isFocused {
   z-index: 101;
-  background-color: var(--lighterBlue);
+  background-color: #CDF;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isToday {
   border-width: 1px;
   border-style: dotted;
-  border-color: var(--gray);
+  border-color: gray;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isHighlighted {
-  background-color: var(--highlight);
+  background-color: gold;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isInRange {
-  background-color: var(--lightBlue);
+  background-color: #9BF;
   color: white;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isSelected {
   font-weight: bold;
-  background-color: var(--blue);
+  background-color: #69F;
   color: white;
   z-index: 100
 }
