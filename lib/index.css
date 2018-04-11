@@ -45,6 +45,8 @@
   text-align: center;
   font-size: 2em;
   margin: .67em 0;
+  -ms-grid-column: 2;
+  grid-column: 2;
 }
 .CalendarContainer>.CalendarHeader input {
   -webkit-transform: translateX(10px);
@@ -73,6 +75,7 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   -ms-flex-item-align: center;
+  -ms-grid-column-align: center;
       align-self: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -90,6 +93,14 @@
   border-style: solid;
   border-color: var(--lightGray);
   height: 40px;
+}
+.CalendarContainer>.CalendarHeader button:first-of-type {
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+.CalendarContainer>.CalendarHeader button:last-of-type {
+  -ms-grid-column: 3;
+  grid-column: 3;
 }
 .CalendarContainer>.CalendarHeader button:disabled {
   opacity: 0.5;
