@@ -10,9 +10,8 @@
 
 <br />
 <img alt="example calendar" src="https://github.com/rubencodes/recal/raw/master/docs/example.png" height="370" />
-<br />
 
-### [**See a Live Demo**](https://rubencodes.github.io/recal)
+[**See a Live Demo**](https://rubencodes.github.io/recal)
 
 ## Installation
 Using recal is simple. Just install the npm package:
@@ -121,11 +120,13 @@ Use the `locale` string prop on the calendar components to localize them into ot
 
 This set of calendars are optimized for screen readers as well as for keyboard-based navigation. The following shortcuts are available when the calendar is focused:
 
-- Left Arrow key to navigate back 1 day,
-- Right Arrow key to navigate forward 1 day,
-- Up Arrow key to navigate back 1 week,
-- Down Arrow key to navigate forward 1 week,
-- Page Up key to navigate back 1 month,
-- Page Down key to navigate forward 1 month,
-- Shift + Page Up key to navigate back 1 year,
-- Shift + Page Down key to navigate forward 1 year.
+| Key               | Action           |
+| ------------------| -----------------|
+| Left Arrow        | Back 1 day       |
+| Right Arrow       | Forward 1 day    |
+| Up Arrow          | Back 1 week      |
+| Down Arrow        | Forward 1 week   |
+| Page Up           | Back 1 month     |
+| Page Down         | Forward 1 month  |
+| Shift + Page Up   | Back 1 year      |
+| Shift + Page Down | Forward 1 year   |
