@@ -6,6 +6,7 @@ import pkg from './package.json';
 
 export default {
   input: 'src/lib/index.jsx',
+  external: ['react'],
   output: [
     { file: pkg.browser, format: 'umd', name: 'recal', exports: 'named' },
     { file: pkg.main, format: 'cjs', exports: 'named' },
