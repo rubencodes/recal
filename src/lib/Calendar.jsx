@@ -5,7 +5,7 @@ import isToday from 'date-fns/is_today';
 import CalendarHeader from './CalendarHeader';
 import CalendarDay from './CalendarDay';
 import {
-  daysOfWeek,
+  getMonthHeaderTemplate,
   getMonthTemplate
 } from './Utils';
 
@@ -32,11 +32,8 @@ const Calendar = (props) => {
 		locale
 	} = props
 
-	const dayNames = daysOfWeek(locale);
-	const {
-		gridColumnStart,
-		monthTemplate
-	} = getMonthTemplate(month, year);
+	const headerTemplate = getMonthHeaderTemplate(locale);
+	const monthTemplate = getMonthTemplate(month, year);
 
 	return (
 		<div className="CalendarContainer">
@@ -50,20 +47,20 @@ const Calendar = (props) => {
 				disabled={ disabled } />
 			<div className="Calendar" ref={ calendarRef }>
 				<div className="head">
-					{ dayNames.map((dayName) => (
-						<div key={ dayName } className="dayHeading" role="columnheader" aria-label={ dayName }>
+					{ headerTemplate.map(({ dayName, style }, i) => (
+						<div key={ dayName } className="dayHeading" style={ style } role="columnheader" aria-label={ dayName }>
 							<abbr>{ dayName.slice(0, 3) }</abbr>
 						</div>
 					)) }
 				</div>
 				<div className="body" role="grid">
-					{ monthTemplate.map((date, i) => (
+					{ monthTemplate.map(({ date, style }, i) => (
 						<CalendarDay
 							key={ date }
 							date={ date }
 							dateButtonRef={ createDateButtonRef(date) }
 							dateLabel={ format(date, 'dddd, MMMM D, YYYY') }
-							style={ i === 0 ? { gridColumnStart } : {} }
+							style={ style }
 							isToday={ isToday(date) }
 							isHovered={ isDateHovered(date) }
 							isFocused={ isDateFocused(date) }
