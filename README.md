@@ -1,8 +1,16 @@
-![recal logo](https://github.com/rubencodes/recal/raw/master/docs/logo.png "recal logo")
+<div align="center">
+  <br /><br />
+  <img alt="recal logo" src="https://github.com/rubencodes/recal/raw/master/docs/logo.png" height="150" />
+  <br /><br />
+</div>
 
 A minimal, accessible React calendar component using modern CSS, for modern browsers. It works with native Javascript dates, so there's no need to import any heavy dependencies like `moment`. For a set of functions for working with Javascript Dates, we recommend [`date-fns`](https://date-fns.org).
 
-![example](https://github.com/rubencodes/recal/raw/master/docs/example.png "example")
+<div align="center">
+  <br /><br />
+  <img alt="example calendar" src="https://github.com/rubencodes/recal/raw/master/docs/example.png" height="370" />
+  <br /><br />
+</div>
 
 ## [**See a Live Demo**](https://rubencodes.github.io/recal)
 
