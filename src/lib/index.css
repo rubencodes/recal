@@ -3,9 +3,9 @@
   border-width: 1px;
   border-style: solid;
   border-color: lightgray;
-  width: calc(100% - 20px);
-  max-width: 320px;
-  margin: 0 auto;
+  background-color: white;
+  width: 302px;
+  margin: 0;
   padding: 10px;
 }
 
@@ -18,28 +18,24 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
-  -ms-grid-columns: 40px 1fr 40px;
-      grid-template: auto / 40px 1fr 40px;
+  -ms-grid-columns: 42px 1fr 42px;
+      grid-template: auto / 42px 1fr 42px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 
   margin: 0 auto;
   width: 100%;
-  max-width: 300px;
   color: black;
 }
 .CalendarContainer>.CalendarHeader h1 {
   text-align: center;
-  font-size: 2em;
-  margin: .67em 0;
+  font-size: 1.5em;
+  margin: 0 0 10px;
   -ms-grid-column: 2;
   grid-column: 2;
 }
 .CalendarContainer>.CalendarHeader input {
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
-  
   display: block;
   font-size: small;
   font-weight: bold;
@@ -47,9 +43,12 @@
   line-height: 1.15;
   height: 18px;
   width: 50px;
-  margin: -2px auto;
+  margin: 0 auto;
   border: none;
   background-color: transparent;
+  font-family: inherit;
+  border: 1px solid lightgray;
+  padding-left: 11px;
   font-family: inherit;
 }
 .CalendarContainer>.CalendarHeader button {
@@ -62,8 +61,8 @@
   display: flex;
   -webkit-box-shadow: none;
           box-shadow: none;
-  -ms-grid-column-align: center;
-      align-self: center;
+  -ms-grid-column-align: flex-end;
+      align-self: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -80,8 +79,9 @@
   border-width: 1px;
   border-style: solid;
   border-color: lightgray;
-  height: 40px;
-  width: 40px;
+  height: 42px;
+  width: 42px;
+  margin-bottom: 10px;
   padding: 0;
 }
 .CalendarContainer>.CalendarHeader button:first-of-type {
@@ -175,13 +175,14 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 
   font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15em;
+  font-size: small;
+  font-weight: lighter;
+  line-height: 1.15;
   margin: 0px;
   border: none;
   position: relative;
@@ -189,6 +190,8 @@
   background-color: white;
   color: #444;
   cursor: pointer;
+  width: 42px;
+  height: 42px;
 }
 .CalendarContainer>.Calendar .CalendarDay.isDisabled {
   opacity: 0.5;
@@ -218,6 +221,7 @@
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isInRange {
   background-color: #9BF;
   color: white;
+  font-weight: normal;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isSelected {
   font-weight: bold;
