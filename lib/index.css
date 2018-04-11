@@ -1,3 +1,4 @@
+/* CalendarContainer */
 .CalendarContainer {
   border-width: 1px;
   border-style: solid;
@@ -8,6 +9,7 @@
   padding: 10px;
 }
 
+/* CalendarHeader */
 .CalendarContainer>.CalendarHeader {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -79,6 +81,8 @@
   border-style: solid;
   border-color: lightgray;
   height: 40px;
+  width: 40px;
+  padding: 0;
 }
 .CalendarContainer>.CalendarHeader button:first-of-type {
   -ms-grid-column: 1;
@@ -92,44 +96,31 @@
   opacity: 0.5;
 }
 
-.CalendarContainer>.CalendarHeader .Chevron {
-  display: inline-block;
-  width: 0.45em;
-  height: 0.45em;
-  border-style: solid;
-  border-width: 0.25em 0.25em 0 0;
-  position: relative;
-  vertical-align: top;
+/* Chevron */
+.CalendarContainer>.CalendarHeader .Chevron:before {
+  content: '';
+  
+	display: inline-block;
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	height: 0.45em;
+	width: 0.45em;
+	position: relative;
+	top: 0.25em;
+	vertical-align: top;
 }
-.CalendarContainer>.CalendarHeader .Chevron.right {
+.CalendarContainer>.CalendarHeader .Chevron.right:before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  
-  left: 0;
-  top: 0.15em;
+  left: -0.15em;
 }
-.CalendarContainer>.CalendarHeader .Chevron.bottom {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-  
-  left: 0.15em;
-  top: 0
-}
-.CalendarContainer>.CalendarHeader .Chevron.left {
+.CalendarContainer>.CalendarHeader .Chevron.left:before {
   -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
-  
-  left: 0.25em;
-  top: 0.15em;
-}
-.CalendarContainer>.CalendarHeader .Chevron.top {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-      
-  left: 0.15em;
-  top: 0.15em
+  left: 0.1em;
 }
 
+/* Calendar */
 .CalendarContainer>.Calendar {
   color: 'black';
 }
@@ -166,6 +157,7 @@
   border-color: #EEE;
 }
 
+/* CalendarDay */
 .CalendarContainer>.Calendar .CalendarDay {
   -webkit-user-select: none;
      -moz-user-select: none;
