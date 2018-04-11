@@ -1,14 +1,17 @@
-# recal
+![recal logo](https://github.com/rubencodes/recal/raw/master/docs/logo.png "recal logo")
 
 A minimal, accessible React calendar component using modern CSS, for modern browsers. It works with native Javascript dates, so there's no need to import any heavy dependencies like `moment`. For a set of functions for working with Javascript Dates, we recommend [`date-fns`](https://date-fns.org).
 
+![example](https://github.com/rubencodes/recal/raw/master/docs/example.png "example")
 
-[**See a Live Demo**](https://rubencodes.github.io/recal)
+## [**See a Live Demo**](https://rubencodes.github.io/recal)
+
+---
 
 ## Installation
 Using recal is simple. Just install the npm package:
 
-```
+```bash
 npm i -S recal
 ```
 
@@ -16,7 +19,7 @@ npm i -S recal
 
 Once you've installed the package, import the necessary files into project you wish to use it in.
 
-```
+```javascript
 import React from 'react';
 
 // Calendar component and enum of valid types.
@@ -30,7 +33,7 @@ import 'recal/lib/index.css';
 
 To create a single date picker, use the `Calendar` component as follows:
 
-```
+```javascript
 class MyDatePicker extends React.Component {
   state = {};
 
@@ -54,7 +57,7 @@ class MyDatePicker extends React.Component {
 
 To create a date range picker, use the `Calendar` component as follows:
 
-```
+```javascript
 class MyDateRangePicker extends React.Component {
   state = {};
 
@@ -74,7 +77,7 @@ class MyDateRangePicker extends React.Component {
       <DateRangePicker
         startDate={ this.state.startDate }
         endDate={ this.state.endDate }
-        onStartDateSelected={ this.onStartDateSelected } />
+        onStartDateSelected={ this.onStartDateSelected }
         onEndDateSelected={ this.onEndDateSelected } />
     );
   }
@@ -85,7 +88,7 @@ class MyDateRangePicker extends React.Component {
 
 Both calendars have some required and some optional props.
 
-```
+```javascript
 // Used by DatePicker
 selectedDate: PropTypes.instanceOf(Date),
 onDateSelected: PropTypes.func,
@@ -103,11 +106,12 @@ isDateHighlighted: PropTypes.func,
 isDateEnabled: PropTypes.func,
 locale: PropTypes.string
 ```
-
+---
 ## Localization
 
 Use the `locale` string prop on the calendar components to localize them into other languages *(e.g. "en-US", "es-MX", etc.)*.
 
+---
 ## Accessibility
 
 This set of calendars are optimized for screen readers as well as for keyboard-based navigation. The following shortcuts are available when the calendar is focused:
