@@ -1,8 +1,7 @@
 import React from 'react';
 
 import {
-	getClassName,
-	mapPropsToStyles
+	getClassName
 } from './Utils';
 
 const CalendarDay = ({ date, dateButtonRef, dateLabel, style, onSelect, onHover, ...props }) => (
