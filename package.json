@@ -1,6 +1,6 @@
 {
   "name": "recal",
-  "version": "1.0.0b-10",
+  "version": "1.0.0b-11",
   "description": "A minimal, accessible React calendar component using modern CSS.",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -41,6 +41,7 @@
     "rollup-plugin-babel": "^4.0.0-beta.4",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.5.1",
     "rollup-plugin-uglify": "^3.0.0",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",

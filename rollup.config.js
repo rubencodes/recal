@@ -2,6 +2,9 @@ import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
+import postCSS from 'rollup-plugin-postcss';
+import autoprefixer from 'autoprefixer';
+
 import pkg from './package.json';
 
 export default {
@@ -29,6 +32,13 @@ export default {
     }
   ],
   plugins: [
+    postCSS({
+      extract: 'lib/index.css',
+      minimize: true,
+      plugins: [
+        autoprefixer()
+      ]
+    }),
     resolve({
       extensions: ['.js', '.jsx', '.json']
     }), // so Rollup can find imported packages.
