@@ -4,17 +4,17 @@
   <br /><br />
 </div>
 
-A minimal, accessible React calendar component using modern CSS, for modern browsers. It works with native Javascript dates, so there's no need to import any heavy dependencies like `moment`. For a set of functions for working with Javascript Dates, we recommend [`date-fns`](https://date-fns.org).
+# recal
+
+>A minimal, accessible React calendar component using modern CSS, for modern browsers. It works with native Javascript dates, so there's no need to import any heavy dependencies like `moment`. For a set of functions for working with Javascript Dates, we recommend [`date-fns`](https://date-fns.org).
 
 <div align="center">
-  <br /><br />
+  <br />
   <img alt="example calendar" src="https://github.com/rubencodes/recal/raw/master/docs/example.png" height="370" />
-  <br /><br />
+  <br />
 </div>
 
-## [**See a Live Demo**](https://rubencodes.github.io/recal)
-
----
+### [**See a Live Demo**](https://rubencodes.github.io/recal)
 
 ## Installation
 Using recal is simple. Just install the npm package:
@@ -114,12 +114,11 @@ isDateHighlighted: PropTypes.func,
 isDateEnabled: PropTypes.func,
 locale: PropTypes.string
 ```
----
+
 ## Localization
 
 Use the `locale` string prop on the calendar components to localize them into other languages *(e.g. "en-US", "es-MX", etc.)*.
 
----
 ## Accessibility
 
 This set of calendars are optimized for screen readers as well as for keyboard-based navigation. The following shortcuts are available when the calendar is focused:
