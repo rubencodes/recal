@@ -3,16 +3,6 @@ import getDaysInMonth from 'date-fns/get_days_in_month';
 export const getClassName = (props) => {
   return Object.keys(props).filter((key) => props[key]).join(' ');
 };
-export const mapPropsToStyles = (props, styles) => {
-  const mappedStyles = Object.keys(props).reduce((soFar, key) => {
-    return props[key] ? {
-      ...soFar,
-      ...(styles[key] || {})
-    } : soFar;
-  }, {});
-
-  return mappedStyles;
-}
 export const daysOfWeek = (locale='en-US') => {
   window.days = window.days || [...Array(7)].map((_, i) => {
     const baseDate = new Date(Date.UTC(2017, 0, i + 2)); // just a Sunday
