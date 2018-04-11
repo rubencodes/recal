@@ -120,13 +120,13 @@ Use the `locale` string prop on the calendar components to localize them into ot
 
 This set of calendars are optimized for screen readers as well as for keyboard-based navigation. The following shortcuts are available when the calendar is focused:
 
-| Key               | Action           |
-| ------------------| -----------------|
-| Left Arrow        | Back 1 day       |
-| Right Arrow       | Forward 1 day    |
-| Up Arrow          | Back 1 week      |
-| Down Arrow        | Forward 1 week   |
-| Page Up           | Back 1 month     |
-| Page Down         | Forward 1 month  |
-| Shift + Page Up   | Back 1 year      |
-| Shift + Page Down | Forward 1 year   |
+| Key               | Direction | Time    |
+| ------------------| ----------| --------|
+| Left Arrow        | Back      | 1 day   |
+| Right Arrow       | Forward   | 1 day   |
+| Up Arrow          | Back      | 1 week  |
+| Down Arrow        | Forward   | 1 week  |
+| Page Up           | Back      | 1 month |
+| Page Down         | Forward   | 1 month |
+| Shift + Page Up   | Back      | 1 year  |
+| Shift + Page Down | Forward   | 1 year  |
