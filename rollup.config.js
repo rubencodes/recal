@@ -8,9 +8,25 @@ export default {
   input: 'src/lib/index.jsx',
   external: ['react'],
   output: [
-    { file: pkg.browser, format: 'umd', name: 'recal', exports: 'named' },
-    { file: pkg.main, format: 'cjs', exports: 'named' },
-    { file: pkg.module, format: 'es', exports: 'named' }
+    {
+      file: pkg.browser,
+      format: 'umd',
+      name: 'recal',
+      exports: 'named',
+      globals: { react: 'React' }
+    },
+    {
+      file: pkg.main,
+      format: 'cjs',
+      exports: 'named',
+      globals: { react: 'React' }
+    },
+    { 
+      file: pkg.module,
+      format: 'es',
+      exports: 'named',
+      globals: { react: 'React' }
+    }
   ],
   plugins: [
     resolve({
