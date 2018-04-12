@@ -169,7 +169,6 @@ class CalendarController extends React.PureComponent {
 			onEndDateSelected
 		} = this.props;
 		
-		this.onDateFocused(date);
 		if(type === CalendarType.DatePicker) {
 			if(onDateSelected) onDateSelected(date);
 		}
@@ -201,7 +200,12 @@ class CalendarController extends React.PureComponent {
 		year = date.getFullYear();
 		
 		this.setState({ focused: date, month, year }, () => {
-			this[format(date, 'YYYYMMDD')].focus();
+			// Focus the DOM element only if it wasn't focused by the user.
+			const dayDOM = this[format(date, 'YYYYMMDD')];
+			if(document.activeElement !== dayDOM) {
+				dayDOM.focus();
+			}
+
 			if(onDateFocused) onDateFocused(date);
 		});
 	}
@@ -272,6 +276,7 @@ class CalendarController extends React.PureComponent {
 
 				onDateSelected={ this.onDateSelected }
 				onDateHovered={ this.onDateHovered }
+				onDateFocused={ this.onDateFocused }
 				onChangeMonth={ this.onChangeMonth }
 				onChangeYear={ this.onChangeYear }
 

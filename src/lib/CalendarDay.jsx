@@ -4,7 +4,7 @@ import {
 	getClassName
 } from './Utils';
 
-const CalendarDay = ({ date, dateButtonRef, dateLabel, style, onSelect, onHover, ...props }) => (
+const CalendarDay = ({ date, dateButtonRef, dateLabel, style, onSelect, onHover, onFocus, ...props }) => (
 	<button
 		ref={ dateButtonRef }
 		role="gridcell"
@@ -16,7 +16,8 @@ const CalendarDay = ({ date, dateButtonRef, dateLabel, style, onSelect, onHover,
 		style={ style }
 		onClick={ !props.isDisabled ? (() => onSelect(date)) : undefined }
 		onMouseEnter={ !props.isDisabled ? (() => onHover(date)) : undefined }
-		onMouseLeave={ !props.isDisabled ? (() => onHover(null)) : undefined }>
+		onMouseLeave={ !props.isDisabled ? (() => onHover(null)) : undefined }
+		onFocus={ !props.isDisabled ? () => onFocus(date) : undefined }>
 		{ date.getDate() }
 	</button>
 );

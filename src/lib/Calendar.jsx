@@ -21,6 +21,7 @@ const Calendar = (props) => {
 		isDateHighlighted,
 		isDateEnabled,
 
+		onDateFocused,
 		onDateHovered,
 		onDateSelected,
 		onChangeMonth,
@@ -69,7 +70,8 @@ const Calendar = (props) => {
 							isHighlighted={ isDateHighlighted(date) }
 							isDisabled={ disabled || !isDateEnabled(date) }
 							onSelect={ onDateSelected }
-							onHover={ onDateHovered } />
+							onHover={ onDateHovered }
+							onFocus={ onDateFocused } />
 					)) }
 				</div>
 			</div>
