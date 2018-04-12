@@ -4,7 +4,7 @@
   <br /><br />
 </div>
 
-# recal
+# 📅 recal 📅
 ![npm version](https://img.shields.io/npm/v/recal.svg)
 ![license](https://img.shields.io/github/license/rubencodes/recal.svg)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/recal.svg)
