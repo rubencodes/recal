@@ -25,7 +25,7 @@ npm i -S recal
 Or, import recal and its stylesheet via CDN:
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/recal@1.0.0/lib/index.css" />
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/recal/lib/index.css" />
 <script src="https://unpkg.com/recal"></script>
 ```
 
