@@ -45,7 +45,7 @@ import 'recal/lib/index.css';
 
 ### Date Picker
 
-To create a single date picker, use the `Calendar` component as follows:
+To create a single date picker, use the `DatePicker` component as follows:
 
 ```javascript
 class MyDatePicker extends React.Component {
@@ -69,7 +69,7 @@ class MyDatePicker extends React.Component {
 
 ### Date Range Picker
 
-To create a date range picker, use the `Calendar` component as follows:
+To create a date range picker, use the `DateRangePicker` component as follows:
 
 ```javascript
 class MyDateRangePicker extends React.Component {
