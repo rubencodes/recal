@@ -122,7 +122,8 @@ onDateHovered: PropTypes.func,
 onDateFocused: PropTypes.func,
 isDateHighlighted: PropTypes.func,
 isDateEnabled: PropTypes.func,
-locale: PropTypes.string
+locale: PropTypes.string,
+disabled: PropTypes.bool
 ```
 
 ## Localization
