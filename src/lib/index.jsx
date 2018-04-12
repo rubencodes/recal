@@ -76,14 +76,14 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
-		if(shiftKey + pageUp) {
+		if(shiftKey && pageUp) {
 			const nextDate = addYears(focused, -1);
 			if(isDateEnabled(nextDate)) {
 				this.onDateFocused(nextDate);
 			}
 			return;
 		}
-		if(shiftKey + pageDown) {
+		if(shiftKey && pageDown) {
 			const nextDate = addYears(focused, 1);
 			if(isDateEnabled(nextDate)) {
 				this.onDateFocused(nextDate);
