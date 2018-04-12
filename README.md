@@ -123,7 +123,7 @@ locale: PropTypes.string
 
 ## Localization
 
-Use the `locale` string prop on the calendar components to localize them into other languages *(e.g. "en-US", "es-MX", etc.)*.
+Use the `locale` string prop on the calendar components to localize the month and days of the week into other languages *(e.g. "en-US", "es-MX", etc.)*.
 
 ## Accessibility
 
