@@ -1,15 +1,17 @@
 {
   "name": "recal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A minimal, accessible React calendar component using modern CSS.",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
   "browser": "lib/index.umd.js",
   "scripts": {
-    "build": "rollup -c",
-    "lib:watch": "babel src/lib -w -d esm --copy-files",
-    "docs": "webpack-dev-server",
-    "docs:prod": "webpack -p"
+    "start": "webpack-dev-server",
+    "build:docs": "webpack -p",
+    "build:lib": "rollup -c",
+    "build": "npm run build:lib && npm run build:docs",
+    "release": "npm run build:lib && npm publish",
+    "lib:watch": "babel src/lib -w -d esm --copy-files"
   },
   "keywords": [
     "react",
