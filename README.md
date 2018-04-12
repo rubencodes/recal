@@ -22,17 +22,24 @@ Using recal is simple. Just install the npm package:
 npm i -S recal
 ```
 
+Or, import recal and its stylesheet via CDN:
+
+```html
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/recal@1.0.0/lib/index.css" />
+<script src="https://unpkg.com/recal"></script>
+```
+
 ## Usage
 
-Once you've installed the package, import the necessary files into project you wish to use it in.
+If you're using recal from npm, be sure to import the necessary modules into the file you wish to use it in.
 
 ```javascript
 import React from 'react';
 
-// Calendar component and enum of valid types.
+// Calendar components.
 import { DatePicker, DateRangePicker } from 'recal';
 
-// Stylesheet for recal Calendar.
+// Stylesheet for calendar.
 import 'recal/lib/index.css';
 ```
 
