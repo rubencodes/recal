@@ -5,6 +5,9 @@
 </div>
 
 # recal
+![npm version](https://img.shields.io/npm/v/recal.svg)
+![license](https://img.shields.io/github/license/rubencodes/recal.svg)
+![bundle size](https://img.shields.io/bundlephobia/minzip/recal.svg)
 
 >A minimal, accessible React/Preact calendar component using modern CSS, for modern browsers. It works with native Javascript dates, so there's no need to import any heavy dependencies like `moment`. For a set of functions for working with Javascript Dates, we recommend [`date-fns`](https://date-fns.org). For a more flexible, fully-featured set of calendar components, see [`react-dates`](https://github.com/airbnb/react-dates).
 
