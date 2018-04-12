@@ -13,6 +13,8 @@
 
 [**See a Live Demo**](https://rubencodes.github.io/recal)
 
+[**Try on CodePen**](https://codepen.io/rubencodes/pen/PRQzPo/)
+
 ## Installation
 Using recal is simple. Just install the npm package:
 
