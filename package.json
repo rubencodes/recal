@@ -1,6 +1,6 @@
 {
   "name": "recal",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A minimal, accessible React calendar component using modern CSS.",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -23,8 +23,8 @@
     "date-fns": "^1.29.0"
   },
   "peerDependencies": {
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react": "^15.3.0 || ^16",
+    "react-dom": "^15.3.0 || ^16"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.37",
