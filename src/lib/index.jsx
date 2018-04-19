@@ -195,9 +195,8 @@ class CalendarController extends React.PureComponent {
 	}
 	onDateFocused(date) {
 		const { onDateFocused } = this.props;
-		let { month, year } = this.state;
-		month = date.getMonth() + 1;
-		year = date.getFullYear();
+		const month = date.getMonth() + 1;
+		const year = date.getFullYear();
 		
 		this.setState({ focused: date, month, year }, () => {
 			// Focus the DOM element only if it wasn't focused by the user.
