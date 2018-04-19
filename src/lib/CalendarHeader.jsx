@@ -5,7 +5,7 @@ import {
   monthsOfYear
 } from './Utils';
 
-const CalendarHeader = ({ month, year, onBack, onForward, onChangeYear, locale, disabled }) => (
+const CalendarHeader = ({ month, year='', onBack, onForward, onChangeYear, locale, disabled }) => (
 	<div className="CalendarHeader">
 		<button
 			className="BackButton"

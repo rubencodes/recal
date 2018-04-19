@@ -136,14 +136,15 @@ class CalendarController extends React.PureComponent {
 	
 	onChangeYear(event) {
 		event.preventDefault();
-		
+
 		this.setState({
-			year: parseInt(event.target.value)
+			year: parseInt(event.target.value) || undefined
 		});
 	}
 	onChangeMonth(delta) {
-		let nextMonth = this.state.month + delta;
-		let nextYear = this.state.year;
+		let { month, year=0 } = this.state;
+		let nextMonth = month + delta;
+		let nextYear = year;
 		
 		if(nextMonth < 1) {
 			nextMonth = 12 + nextMonth;

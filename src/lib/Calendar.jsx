@@ -34,7 +34,7 @@ const Calendar = (props) => {
 	} = props
 
 	const headerTemplate = getMonthHeaderTemplate(locale);
-	const monthTemplate = getMonthTemplate(month, year);
+	const monthTemplate = getMonthTemplate(month, year || 0);
 
 	return (
 		<div className="CalendarContainer">
