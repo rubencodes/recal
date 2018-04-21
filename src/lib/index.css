@@ -191,21 +191,25 @@
 
   font-family: inherit;
   font-size: small;
-  font-weight: lighter;
   line-height: 15px;
   margin: 0px;
   border: none;
   position: relative;
   padding: 4px 4px;
-  background-color: white;
-  color: #444;
-  cursor: pointer;
   width: 42px;
   height: 42px;
 }
 .CalendarContainer>.Calendar .CalendarDay.isDisabled {
-  opacity: 0.5;
   cursor: default;
+  color: #505050;
+  background: #f6f6f6;
+  font-weight: lighter;
+}
+.CalendarContainer>.Calendar .CalendarDay:not(.isDisabled) {
+  cursor: pointer;
+  background-color: white;
+  color: #333;
+  font-weight: normal;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isHovered {
   -webkit-transform: scale(1.2);
@@ -229,13 +233,12 @@
   background-color: gold;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isInRange {
-  background-color: #9BF;
+  background-color: hsla(220, 100%, 55%, 1);
   color: white;
-  font-weight: normal;
 }
 .CalendarContainer>.Calendar .CalendarDay:not(.isDisabled).isSelected {
   font-weight: bold;
-  background-color: #69F;
+  background-color: hsla(220, 100%, 45%, 1);
   color: white;
   z-index: 100
 }

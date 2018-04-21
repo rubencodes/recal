@@ -50,7 +50,7 @@
 #DatePickerExample > b,
 #DateRangePickerExample > b {
 	display: block;
-	background-color: #69F;
+	background-color: hsla(220, 100%, 55%, 1);;
 	color: white;
 	border-radius: 10px;
 	padding: 5px 10px;

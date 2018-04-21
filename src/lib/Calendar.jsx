@@ -46,15 +46,15 @@ const Calendar = (props) => {
 				onChangeYear={ onChangeYear }
 				locale={ locale }
 				disabled={ disabled } />
-			<div className="Calendar" ref={ calendarRef }>
-				<div className="head">
+			<div className="Calendar" role="grid" ref={ calendarRef }>
+				<div className="head" role="row">
 					{ headerTemplate.map(({ dayName, style }, i) => (
 						<div key={ dayName } className="dayHeading" style={ style } role="columnheader" aria-label={ dayName }>
 							<abbr>{ dayName.slice(0, 3) }</abbr>
 						</div>
 					)) }
 				</div>
-				<div className="body" role="grid">
+				<div className="body" role="row">
 					{ monthTemplate.map(({ date, style }, i) => (
 						<CalendarDay
 							key={ date }
