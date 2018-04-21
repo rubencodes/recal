@@ -16,7 +16,11 @@
   "keywords": [
     "react",
     "calendar",
-    "datepicker"
+    "dates",
+    "datepicker",
+    "daterangepicker",
+    "accessibility",
+    "a11y"
   ],
   "license": "MIT",
   "dependencies": {
