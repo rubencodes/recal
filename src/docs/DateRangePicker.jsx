@@ -1,6 +1,7 @@
 import React from 'react';
 import isSameDay from 'date-fns/is_same_day';
 import isBefore from 'date-fns/is_before';
+import addDays from 'date-fns/add_days';
 
 import { DateRangePicker } from '../lib/index.jsx';
 
@@ -9,8 +10,8 @@ class MyDateRangePicker extends React.PureComponent {
 		super();
 		
 		this.state = {
-			startDate: null,
-			endDate: null,
+			startDate: addDays(new Date(), 2),
+			endDate: addDays(new Date(), 9),
 			hoveredDate: null
 		};
 		

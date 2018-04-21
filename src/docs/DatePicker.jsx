@@ -1,6 +1,7 @@
 import React from 'react';
 import isSameDay from 'date-fns/is_same_day';
 import isBefore from 'date-fns/is_before';
+import addDays from 'date-fns/add_days';
 
 import { DatePicker } from '../lib/index.jsx';
 
@@ -9,7 +10,7 @@ class MyDatePicker extends React.PureComponent {
 		super();
 		
 		this.state = {
-			selectedDate: null
+			selectedDate: addDays(new Date(), 1)
 		};
 		
 		this.isDateEnabled = this.isDateEnabled.bind(this);
