@@ -5,7 +5,7 @@ export const getClassName = (props) => {
 };
 export const monthsOfYear = (locale='en-US') => {
   window.months = window.months || [...Array(12)].map((_, i) => {
-    let baseDate = new Date(Date.UTC(2017, i + 1, 1));
+    let baseDate = new Date(Date.UTC(2017, i, 1));
 
     return baseDate.toLocaleDateString(locale, { month: 'long' });
   });
