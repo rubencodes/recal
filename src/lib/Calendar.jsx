@@ -33,7 +33,9 @@ const Calendar = (props) => {
 		locale
 	} = props
 
+	// Template for month header (days of week info).
 	const headerTemplate = getMonthHeaderTemplate(locale);
+	// Template for month grid (days of month info).
 	const monthTemplate = getMonthTemplate(month, year || 0);
 
 	return (
