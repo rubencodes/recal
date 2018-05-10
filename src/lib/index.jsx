@@ -159,7 +159,8 @@ class CalendarController extends React.PureComponent {
 		let nextYear = year;
 		
 		// Change current month by the given delta.
-		// But bound month selection between 1 & 12.
+		// But if next month is not between 1 & 12, adjust year too.
+		// TODO: handle case where delta >12mo.
 		if(nextMonth < 1) {
 			nextMonth = 12 + nextMonth;
 			nextYear -= 1;
