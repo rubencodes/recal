@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Chevron from './Chevron';
 import {
   monthsOfYear
 } from './Utils';
