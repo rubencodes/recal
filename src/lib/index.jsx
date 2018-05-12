@@ -20,11 +20,13 @@ class CalendarController extends React.PureComponent {
 	constructor(props) {
 		super();
 		
+		// Init to current month/year or provided date.
 		const initialDate = props.date || (new Date());
 		const month = initialDate.getMonth() + 1;
 		const year = initialDate.getFullYear();
 		this.state = { month, year };
 		
+		// Bind all functions to this.
 		this.handleKeyPress = this.handleKeyPress.bind(this);
 		this.onDateHovered = this.onDateHovered.bind(this);
 		this.onDateSelected = this.onDateSelected.bind(this);
@@ -70,12 +72,14 @@ class CalendarController extends React.PureComponent {
 		const { isDateEnabled } = this.props;
 		let { focused } = this.state;
 
+		// Enter key selects a day.
 		if(enter) {
 			if(isDateEnabled(focused)) {
 				this.onDateSelected(focused);
 			}
 			return;
 		}
+		// Shift key + pageUp moves backward 1yr.
 		if(shiftKey && pageUp) {
 			const nextDate = addYears(focused, -1);
 			if(isDateEnabled(nextDate)) {
@@ -83,6 +87,7 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
+		// Shift key + pageDown moves forward 1yr.
 		if(shiftKey && pageDown) {
 			const nextDate = addYears(focused, 1);
 			if(isDateEnabled(nextDate)) {
@@ -90,6 +95,7 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
+		// pageUp moves backward 1mo.
 		if(pageUp) {
 			const nextDate = addMonths(focused, -1);
 			if(isDateEnabled(nextDate)) {
@@ -97,6 +103,7 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
+		// pageDown moves forward 1mo.
 		if(pageDown) {
 			const nextDate = addMonths(focused, 1);
 			if(isDateEnabled(nextDate)) {
@@ -104,6 +111,7 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
+		// Up Arrow moves backward 1wk.
 		if(upArrow) {
 			const nextDate = addWeeks(focused, -1);
 			if(isDateEnabled(nextDate)) {
@@ -111,6 +119,7 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
+		// Down Arrow moves forward 1wk.
 		if(downArrow) {
 			const nextDate = addWeeks(focused, 1);
 			if(isDateEnabled(nextDate)) {
@@ -118,6 +127,7 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
+		// Left Arrow moves backward 1day.
 		if(leftArrow) {
 			const nextDate = addDays(focused, -1);
 			if(isDateEnabled(nextDate)) {
@@ -125,6 +135,7 @@ class CalendarController extends React.PureComponent {
 			}
 			return;
 		}
+		// Right Arrow moves forward 1wk.
 		if(rightArrow) {
 			const nextDate = addDays(focused, 1);
 			if(isDateEnabled(nextDate)) {
@@ -137,6 +148,7 @@ class CalendarController extends React.PureComponent {
 	onChangeYear(event) {
 		event.preventDefault();
 
+		// Set year to value as Integer (or fall back to undefined if NaN)
 		this.setState({
 			year: parseInt(event.target.value) || undefined
 		});
@@ -146,6 +158,9 @@ class CalendarController extends React.PureComponent {
 		let nextMonth = month + delta;
 		let nextYear = year;
 		
+		// Change current month by the given delta.
+		// But if next month is not between 1 & 12, adjust year too.
+		// TODO: handle case where delta >12mo.
 		if(nextMonth < 1) {
 			nextMonth = 12 + nextMonth;
 			nextYear -= 1;
@@ -170,18 +185,22 @@ class CalendarController extends React.PureComponent {
 			onEndDateSelected
 		} = this.props;
 		
+		// DatePicker -> one date selected.
 		if(type === CalendarType.DatePicker) {
 			if(onDateSelected) onDateSelected(date);
 		}
+		// DateRangePicker -> either first or second date selected.
 		else if(type === CalendarType.DateRangePicker) {
 			const noStartDate = !this.props.startDate;
 			const allSelected = this.props.startDate && this.props.endDate;
 			const dateIsPriorToStart = this.props.startDate && this.props.startDate > date;
 			const needStartDate = noStartDate || allSelected || dateIsPriorToStart;
+			// No start date, make this the start date.
 			if(needStartDate) {
 				if(onStartDateSelected) onStartDateSelected(date);
 				if(onEndDateSelected) onEndDateSelected(null);
 			}
+			// Has start date, make this the end date.
 			else {
 				if(onEndDateSelected) onEndDateSelected(date);
 			}
@@ -190,7 +209,9 @@ class CalendarController extends React.PureComponent {
 	onDateHovered(date) {
 		const { onDateHovered } = this.props;
 		
+		// Update date hovered in state.
 		this.setState({ hovered: date }, () => {
+			// If we have a prop hover handler, run it.
 			if(onDateHovered) onDateHovered(date);
 		});
 	}
@@ -199,6 +220,7 @@ class CalendarController extends React.PureComponent {
 		const month = date.getMonth() + 1;
 		const year = date.getFullYear();
 		
+		// Update date focused in state.
 		this.setState({ focused: date, month, year }, () => {
 			// Focus the DOM element only if it wasn't focused by the user.
 			const dayDOM = this[format(date, 'YYYYMMDD')];
@@ -206,47 +228,58 @@ class CalendarController extends React.PureComponent {
 				dayDOM.focus();
 			}
 
+			// If we have a prop focus handler, run it.
 			if(onDateFocused) onDateFocused(date);
 		});
 	}
 	
 	isDateEnabled(date) {
+		// Check with prop function whether date is enabled.
 		const { isDateEnabled } = this.props;
 		
 		return isDateEnabled(date);
 	}
 	isDateHighlighted(date) {
+		// Check with prop function whether date is highlighted.
 		const { isDateHighlighted } = this.props;
 		
 		return isDateHighlighted(date);
 	}
 	isDateFocused(date) {
+		// Is this date currently focused?
 		return isSameDay(date, this.state.focused);
 	}
 	isDateHovered(date) {
+		// Is this date currently hovered?
 		return isSameDay(date, this.state.hovered);
 	}
 	isDateSelected(date) {
+		// DatePicker/DateRangePicker have different dates.
 		const selectedDays = this.props.type === CalendarType.DatePicker
 					? [ this.props.date ]
 					: [ this.props.startDate, this.props.endDate ];
 		
+		// Is this date selected?
 		return selectedDays.some((selected) => {
 			return selected ? isSameDay(selected, date) : false;
 		});
 	}
 	isDateInRange(date) {
+		// Only DateRangePicker can have a range.
 		if(this.props.type === CalendarType.DatePicker) return false;
 		
+		// We can only have a range if there's a start date and either and endDate or a hovered/focusedDate.
 		const { startDate: startRange, endDate } = this.props;
 		const { focused, hovered } = this.state;
 		const endRange = endDate || (startRange && focused && !isSameDay(startRange, focused) ? focused : hovered);
 		if(!startRange || !endRange || isBefore(endRange, startRange)) return false;
 
+		// Check if date is within the range of start/end.
 		return isWithinRange(date, startRange, endRange);
 	}
 
 	createDateButtonRef(date) {
+		// Generates a function ref to a button representing a date.
 		return (ref) => {
 			this[format(date, 'YYYYMMDD')] = ref;
 		};

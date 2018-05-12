@@ -12,7 +12,7 @@ const CalendarHeader = ({ month, year='', onBack, onForward, onChangeYear, local
 			title="Previous Month"
 			onClick={ onBack }
 			disabled={ disabled || !onBack }>
-			<Chevron direction="left" />
+			&#10094;
 		</button>
 		<h1 className="MonthDisplay" aria-live="assertive">
 			{ monthsOfYear(locale)[month - 1] }
@@ -28,7 +28,7 @@ const CalendarHeader = ({ month, year='', onBack, onForward, onChangeYear, local
 			title="Next Month"
 			onClick={ onForward }
 			disabled={ disabled || !onForward }>
-			<Chevron direction="right" />
+			&#10095;
 		</button>
 	</div>
 );

@@ -82,8 +82,8 @@
 
   font-family: monospace;
   font-weight: bold;
-  font-size: 100%;
-  line-height: 15px;
+  font-size: 16px;
+  line-height: 16px;
   background-color: white;
   border-width: 1px;
   border-style: solid;
@@ -103,30 +103,6 @@
 }
 .CalendarContainer>.CalendarHeader button:disabled {
   opacity: 0.5;
-}
-
-/* Chevron */
-.CalendarContainer>.CalendarHeader .Chevron:before {
-  content: '';
-  
-	display: inline-block;
-	border-style: solid;
-	border-width: 3px 3px 0 0;
-  height: 10px;
-  width: 10px;
-	position: relative;
-	top: 3px;
-	vertical-align: top;
-}
-.CalendarContainer>.CalendarHeader .Chevron.right:before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  left: -2px;
-}
-.CalendarContainer>.CalendarHeader .Chevron.left:before {
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-  left: 2px;
 }
 
 /* Calendar */
