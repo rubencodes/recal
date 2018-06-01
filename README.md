@@ -8,6 +8,7 @@
 ![npm version](https://img.shields.io/npm/v/recal.svg)
 ![license](https://img.shields.io/github/license/rubencodes/recal.svg)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/recal.svg)
+[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=A11y)](https://github.com/ebidel/lighthouse-badge)
 
 >A minimal, accessible React/Preact calendar component using modern CSS, for modern browsers. *Now with a 100 Lighthouse Accessibility Audit score.* It works with native Javascript dates, so there's no need to import any heavy dependencies like `moment`. For a set of functions for working with Javascript Dates, we recommend [`date-fns`](https://date-fns.org). For a more flexible, fully-featured set of calendar components, see [`react-dates`](https://github.com/airbnb/react-dates).
 
