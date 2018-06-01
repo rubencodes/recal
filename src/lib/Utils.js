@@ -9,8 +9,8 @@ export const getClassName = (props) => {
 export const monthsOfYear = (locale='en-US') => {
   // Cache result in window.months.
   window.months = window.months || [...Array(12)].map((_, i) => {
-    // Get a date object set to the i+1th month.
-    let baseDate = new Date(Date.UTC(2017, i + 1, 1));
+    // Get a date object set to the i-th month.
+    const baseDate = new Date(2017, i, 1);
     
     // Get full name of this month.
     return baseDate.toLocaleDateString(locale, { month: 'long' });
